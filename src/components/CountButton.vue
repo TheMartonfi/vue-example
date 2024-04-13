@@ -1,11 +1,4 @@
 <script>
-/**
- * @vue-prop {Number} initialCounter - Initial counter's value
- * @vue-prop {Number} [step=1] - Step
- * @vue-data {Number} counter - Current counter's value
- * @vue-event {Number} increment - Increments count
- * @vue-event {Number} decrement - Decrements count
- */
 export default {
   props: {
     initialCounter: {
