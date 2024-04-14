@@ -1,33 +1,30 @@
 <script setup>
-export default {
-  props: {
-    initialCounter: {
-      type: Number,
-      required: true,
-    },
-    step: {
-      type: Number,
-      default: 1
-    },
+import { ref, onMounted } from 'vue';
+
+const props = defineProps({
+  initialCounter: {
+    type: Number,
+    required: true,
   },
-  data() {
-    return {
-      count: this.initialCounter,
-    }
+  step: {
+    type: Number,
+    default: 1
   },
-  methods: {
-    increment() {
-      this.count++
-    },
-    decrement() {
-      this.count--
-    },
-  },
-  mounted() {
-    // methods can be called in lifecycle hooks, or other methods!
-    this.increment()
-  }
-}
+});
+
+const count = ref(props.initialCounter);
+
+const increment = () => {
+  count.value += props.step;
+};
+
+const decrement = () => {
+  count.value -= props.step;
+};
+
+onMounted(() => {
+  increment();
+});
 </script>
 
 <template>
